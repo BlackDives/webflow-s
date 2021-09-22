@@ -4,9 +4,20 @@ import {
     UnorderedList,
     ListItem,
     Input,
+    Form,
     Button,
     Link,
     Text,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    FormControl,
+    FormLabel,
 } from '@chakra-ui/react'
 import { FaSearch } from 'react-icons/fa'
 
@@ -16,6 +27,8 @@ const NavHeader = () => {
         { title: 'COMICS', address: '#' },
         { title: 'ANIMATIONS', address: '#' },
     ]
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
         <Flex
@@ -39,6 +52,42 @@ const NavHeader = () => {
                 })}
             </UnorderedList>
             <Flex paddingX={'20px'}>
+                <Button margin={'0 10px'} onClick={onOpen}>
+                    Login
+                </Button>
+                <Modal isOpen={isOpen} onClose={onClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                        <ModalHeader>Login</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                            <FormControl>
+                                <FormLabel>Username:</FormLabel>
+                                <Input placeholder="Username" />
+                            </FormControl>
+
+                            <FormControl mt={4}>
+                                <FormLabel>Password:</FormLabel>
+                                <Input placeholder="Password" />
+                            </FormControl>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Flex
+                                flexDir={'row'}
+                                justifyContent={'space-between'}
+                                width={'100%'}
+                            >
+                                <Button
+                                    onClick={onClose}
+                                    backgroundColor={'#80b192'}
+                                >
+                                    Login
+                                </Button>
+                                <Button>Sign Up</Button>
+                            </Flex>
+                        </ModalFooter>
+                    </ModalContent>
+                </Modal>
                 <Button
                     leftIcon={<FaSearch />}
                     borderRadius={'20px'}
@@ -56,6 +105,7 @@ const NavHeader = () => {
                     borderLeftRadius={0}
                     borderLeft={'none'}
                     placeholder={'Search..'}
+                    _placeholder={{ color: 'white' }}
                 />
             </Flex>
         </Flex>

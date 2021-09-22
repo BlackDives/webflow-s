@@ -33,7 +33,7 @@ const Featured = () => {
     }
 
     return (
-        <Flex margin={0} flexDir={'column'}>
+        <Flex margin={0} padding={0} flexDir={'column'}>
             <Flex width={'100%'}>
                 <UnorderedList
                     display={'flex'}
@@ -42,6 +42,7 @@ const Featured = () => {
                     justifyContent={'center'}
                     listStyleType={'none'}
                     borderBottom={'1px solid black'}
+                    m={0}
                 >
                     {Dates.map((data) => {
                         return (
@@ -62,6 +63,13 @@ const Featured = () => {
                     })}
                 </UnorderedList>
             </Flex>
+            <Flex>
+                {' '}
+                <Text fontSize={'37px'} fontWeight={800} padding={'10px 50px'}>
+                    Featured
+                </Text>
+            </Flex>
+
             <Grid gridTemplateColumns={'repeat(5, 1fr)'} padding={'10px  50px'}>
                 <FeatureBox title={'IVY'} views={'346,328'} genre={'action'} />
                 <FeatureBox title={'IVY'} views={'346,328'} genre={'action'} />

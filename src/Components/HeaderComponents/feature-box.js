@@ -19,9 +19,12 @@ const FeatureBox = ({ title, views, genre }) => {
             p={'10px'}
             flexDir={'column'}
             justifyContent={'space-between'}
+            borderRadius={'20px'}
         >
             <Flex flexDirection={'column'}>
-                <Text fontSize={'20px'}>{title}</Text>
+                <Text fontSize={'20px'} fontWeight={700}>
+                    {title}
+                </Text>
                 <Text>{views} views</Text>
             </Flex>
             <Flex>{genre}</Flex>
