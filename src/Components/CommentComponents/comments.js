@@ -19,13 +19,16 @@ const Comments = () => {
 
     return (
         <Flex flexDir={'column'} width={'50%'} padding={'1.2rem'}>
-            <Text>Comments</Text>
+            <Text fontWeight={800} fontSize={'3xl'}>
+                Comments
+            </Text>
             <CommentForm addItems={addItems} />
             <UnorderedList
                 display={'flex'}
                 flexDir={'column'}
                 listStyleType={'none'}
                 p={'1.2rem'}
+                m={0}
             >
                 {items.map((data) => {
                     return (
@@ -33,7 +36,6 @@ const Comments = () => {
                             <ListItem>
                                 {' '}
                                 <Flex
-                                    border={'1px solid black'}
                                     flexDir={'row'}
                                     padding={'1.2rem'}
                                     justifyContent={'space-between'}

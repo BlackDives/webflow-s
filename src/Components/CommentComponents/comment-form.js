@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Input, Flex, FormControl } from '@chakra-ui/react'
+import { Button, Input, Flex, FormControl, Textarea } from '@chakra-ui/react'
 
 const CommentForm = ({ addItems }) => {
     const [comment, setComment] = useState('')
@@ -10,15 +10,18 @@ const CommentForm = ({ addItems }) => {
         setComment('')
     }
     return (
-        <Flex>
+        <Flex p={'1.2rem'}>
             <form onSubmit={handleSubmit}>
-                <FormControl display={'flex'}>
-                    <Input
+                <FormControl display={'flex'} flexDir={'column'} width={'100%'}>
+                    <Textarea
                         type={'text'}
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
+                        resize={'none'}
                     />
-                    <Button type={'submit'}>Submit</Button>
+                    <Button type={'submit'} width={'25%'} my={'10px'}>
+                        SUBMIT
+                    </Button>
                 </FormControl>
             </form>
         </Flex>
