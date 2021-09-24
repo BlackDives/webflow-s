@@ -8,10 +8,10 @@ import Comments from './Components/CommentComponents/comments'
 const App = () => {
     return (
         <>
-            <NavHeader />
+            {/* <NavHeader />
             <LandingHeader />
-            <Featured />
-            {/* <Comments /> */}
+            <Featured /> */}
+            <Comments />
         </>
     )
 }
