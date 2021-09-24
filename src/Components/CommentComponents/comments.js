@@ -11,37 +11,51 @@ import {
 import CommentForm from './comment-form'
 
 const Comments = () => {
-    const [items, setItems] = useState([
-        { value: 'Hey, my name is kam and I am getting frustrated.' },
-    ])
-    const [commentL, setCommentL] = useState('')
+    const [items, setItems] = useState([])
 
     const addItems = (text) => {
-        setItems([...items, { value: text }])
-    }
-
-    const getValv = (val) => {
-        setCommentL(val.target.value)
+        setItems([...items, { value: text, name: 'Kamron' }])
     }
 
     return (
         <Flex flexDir={'column'} width={'50%'} padding={'1.2rem'}>
             <Text>Comments</Text>
-            <CommentForm />
-            <UnorderedList display={'flex'} flexDir={'column'}>
+            <CommentForm addItems={addItems} />
+            <UnorderedList
+                display={'flex'}
+                flexDir={'column'}
+                listStyleType={'none'}
+            >
                 {items.map((data) => {
                     return (
                         <>
                             <ListItem>
                                 {' '}
-                                <Text padding={'10px'}>{data.value}</Text>
+                                <Flex
+                                    border={'1px solid black'}
+                                    flexDir={'row'}
+                                    padding={'1.2rem'}
+                                >
+                                    <Flex
+                                        height={'50px'}
+                                        width={'50px'}
+                                        background={'black'}
+                                        mr={'1.1rem'}
+                                    ></Flex>
+                                    <Flex flexDir={'column'}>
+                                        <Text fontWeight={800}>
+                                            {data.name}
+                                        </Text>
+                                        <Text>{data.value}</Text>
+                                    </Flex>
+                                    <Flex>{new Date().toString()}</Flex>
+                                </Flex>
                             </ListItem>
                             <hr />
                         </>
                     )
                 })}
             </UnorderedList>
-            <Text>{commentL}</Text>
         </Flex>
     )
 }
