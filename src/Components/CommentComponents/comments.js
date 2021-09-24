@@ -25,6 +25,7 @@ const Comments = () => {
                 display={'flex'}
                 flexDir={'column'}
                 listStyleType={'none'}
+                p={'1.2rem'}
             >
                 {items.map((data) => {
                     return (
@@ -35,20 +36,26 @@ const Comments = () => {
                                     border={'1px solid black'}
                                     flexDir={'row'}
                                     padding={'1.2rem'}
+                                    justifyContent={'space-between'}
                                 >
-                                    <Flex
-                                        height={'50px'}
-                                        width={'50px'}
-                                        background={'black'}
-                                        mr={'1.1rem'}
-                                    ></Flex>
-                                    <Flex flexDir={'column'}>
-                                        <Text fontWeight={800}>
-                                            {data.name}
-                                        </Text>
-                                        <Text>{data.value}</Text>
+                                    <Flex>
+                                        {' '}
+                                        <Flex
+                                            height={'50px'}
+                                            width={'50px'}
+                                            background={'black'}
+                                            mr={'1.1rem'}
+                                        ></Flex>
+                                        <Flex flexDir={'column'}>
+                                            <Text fontWeight={800}>
+                                                {data.name}
+                                            </Text>
+                                            <Text>{data.value}</Text>
+                                        </Flex>{' '}
                                     </Flex>
-                                    <Flex>{new Date().toString()}</Flex>
+                                    <Flex>
+                                        {new Date().toLocaleDateString()}
+                                    </Flex>
                                 </Flex>
                             </ListItem>
                             <hr />
