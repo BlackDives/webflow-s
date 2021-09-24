@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     Flex,
     UnorderedList,
@@ -8,25 +8,40 @@ import {
     Link,
     Text,
 } from '@chakra-ui/react'
+import CommentForm from './comment-form'
 
 const Comments = () => {
-    // const [comms, addComms] = useState(['Comment', 'Another Comment'])
-    const comms = ['kam']
+    const [items, setItems] = useState([
+        { value: 'Hey, my name is kam and I am getting frustrated.' },
+    ])
+    const [commentL, setCommentL] = useState('')
+
+    const addItems = (text) => {
+        setItems([...items, { value: text }])
+    }
+
+    const getValv = (val) => {
+        setCommentL(val.target.value)
+    }
 
     return (
-        <Flex flexDir={'column'}>
-            <Input placeholder={'Type your thoughts'} />
-            <Flex flexDir={'column'}>
-                {comms.map((data) => {
+        <Flex flexDir={'column'} width={'50%'} padding={'1.2rem'}>
+            <Text>Comments</Text>
+            <CommentForm />
+            <UnorderedList display={'flex'} flexDir={'column'}>
+                {items.map((data) => {
                     return (
                         <>
-                            <Text padding={'10px'}>{data}</Text>
+                            <ListItem>
+                                {' '}
+                                <Text padding={'10px'}>{data.value}</Text>
+                            </ListItem>
                             <hr />
                         </>
                     )
                 })}
-            </Flex>
-            <Button>Submit</Button>
+            </UnorderedList>
+            <Text>{commentL}</Text>
         </Flex>
     )
 }
