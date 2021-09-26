@@ -18,6 +18,7 @@ const CommentForm = ({ addItems }) => {
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                         resize={'none'}
+                        p={'5rem'}
                     />
                     <Button type={'submit'} width={'25%'} my={'10px'}>
                         SUBMIT
