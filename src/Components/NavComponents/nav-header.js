@@ -52,7 +52,11 @@ const NavHeader = () => {
                 })}
             </UnorderedList>
             <Flex paddingX={'20px'}>
-                <Button margin={'0 10px'} onClick={onOpen}>
+                <Button
+                    margin={'0 10px'}
+                    onClick={onOpen}
+                    borderRadius={'20px'}
+                >
                     Login
                 </Button>
                 <Modal isOpen={isOpen} onClose={onClose}>
@@ -92,7 +96,6 @@ const NavHeader = () => {
                     leftIcon={<FaSearch />}
                     borderRadius={'20px'}
                     borderRightRadius={0}
-                    border={'1px solid white'}
                     background={'white'}
                     padding={'10px 15px'}
                     borderRight={'none'}
@@ -101,11 +104,11 @@ const NavHeader = () => {
                 <Input
                     // padding={'10px 30px'}
                     borderRadius={'20px'}
-                    border={'1px solid white'}
                     borderLeftRadius={0}
                     borderLeft={'none'}
                     placeholder={'Search..'}
-                    _placeholder={{ color: 'white' }}
+                    _placeholder={{ color: 'black' }}
+                    background={'white'}
                 />
             </Flex>
         </Flex>
